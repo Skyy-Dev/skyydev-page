@@ -2,7 +2,18 @@
 <body>
 
 <p>Welcome to SkyyDev</p>
+
 <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+<script>
+  const beamsClient = new PusherPushNotifications.Client({
+    instanceId: '3bac6a1f-f9b3-4dc5-895a-c7b4e04d9c92',
+  });
+
+  beamsClient.start()
+    .then(() => beamsClient.addDeviceInterest('hello'))
+    .then(() => console.log('Successfully registered and subscribed!'))
+    .catch(console.error);
+</script>
 
 </body>
 </html>
